@@ -1,13 +1,18 @@
 from pydantic import BaseModel
-from typing import List, Any
+from typing import List
 
 class ParcelInput(BaseModel):
-    parcel_name: str
-    coordinates: List[Any]  # Recibe los puntos del polígono de la parcela de forma flexible
+    terreno_name: str
+    municipality: str
+    state: str
+    country: str
+    latitude: float
+    longitude: float
+    area_hectares: float
     target_crop: str
 
 class AnalysisResponse(BaseModel):
-    parcel_name: str
+    terreno_name: str
     estimated_area_hectares: float
     suitability_score: float
     recommendations: List[str]
